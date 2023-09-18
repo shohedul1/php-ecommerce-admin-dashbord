@@ -1,5 +1,6 @@
 <?php 
 include('includes/connect.php');
+include('functions/common_function.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -76,89 +77,19 @@ include('includes/connect.php');
 
             <!-- fourth child -->
             <div class="row">
+                <!-- display card -->
                 <div class="col-md-10">
                     <!-- products -->
                     <div class="row">
-                        <div class="col-md-4 mb-2">
-                            <div class="card">
-                                <div id="image-card">
-                                <img src="./images/dairy1.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-info">Add to Cart</a>
-                                    <a href="#" class="btn btn-secondary">View more</a>
-                                </div>
-                            </div>
-                        </div>   
-                        <div class="col-md-4  mb-2">
-                            <div class="card">
-                                <div id="image-card">  
-                                <img src="./images/apple.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-info">Add to Cart</a>
-                                    <a href="#" class="btn btn-secondary">View more</a>
-                                </div>
-                            </div>
-                        </div>  
-                        <div class="col-md-4  mb-2">
-                            <div class="card">
-                                <div id="image-card">  
-                                <img src="./images/capsicum.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-info">Add to Cart</a>
-                                    <a href="#" class="btn btn-secondary">View more</a>
-                                </div>
-                            </div>
-                        </div>  
-                        <div class="col-md-4 mb-2">
-                            <div class="card">
-                                <div id="image-card"> 
-                                <img src="./images/capsicum.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-info">Add to Cart</a>
-                                    <a href="#" class="btn btn-secondary">View more</a>
-                                </div>
-                            </div>
-                        </div>  
-                        <div class="col-md-4 mb-2">
-                            <div class="card">
-                                <div id="image-card"> 
-                                <img src="./images/capsicum.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-info">Add to Cart</a>
-                                    <a href="#" class="btn btn-secondary">View more</a>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-4 mb-2">
-                            <div class="card">
-                                <div id="image-card">
-                                <img src="./images/capsicum.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-info">Add to Cart</a>
-                                    <a href="#" class="btn btn-secondary">View more</a>
-                                </div>
-                            </div>
-                        </div>   
+                        <!-- fetching.products -->
+                        <?php
+                            getproducts();
+                            get_unique_categories();
+                            get_unique_brands();
+                        ?>
                     </div>    
                 </div>
+                <!-- sidebar -->
                 <div class="col-md-2 bg-secondary p-0">
                     <!-- Brands to displayed --> 
                     <ul class="navbar-nav me-auto text-center">
@@ -166,17 +97,8 @@ include('includes/connect.php');
                             <a href="#" class="nav-link text-light"><h4>Delivery Brands</h4></a>
                         </li>
                         <?php 
-                        
-                        $select_brands="Select * from `brands`";
-                        $result_brands=mysqli_query($con,$select_brands);
-                        while($row_data=mysqli_fetch_assoc($result_brands)){
-                            $brand_title=$row_data['brand_title'];
-                            $brand_id=$row_data['brand_id'];     
+                            getbrands();
                         ?>
-                        <li class="nav-item">
-                            <a href="index.php?brand=<?php echo $brand_id; ?>"class="nav-link text-light"> <?php echo $brand_title; ?></a>
-                        </li>
-                        <?php } ?>
                         
                     </ul>
                     <!-- categories to displayed --> 
@@ -185,17 +107,8 @@ include('includes/connect.php');
                             <a href="#" class="nav-link text-light"><h4>Categories</h4></a>
                         </li>
                         <?php 
-                        
-                        $select_category="Select * from `categories`";
-                        $result_category=mysqli_query($con,$select_category);
-                        while($row_data=mysqli_fetch_assoc($result_category)){
-                            $category_title=$row_data['category_title'];
-                            $category_id=$row_data['category_id'];     
+                            getcategory();
                         ?>
-                        <li class="nav-item">
-                            <a href="index.php?category=<?php echo $category_id;?>" class="nav-link text-light"><?php echo $category_title; ?></a>
-                        </li>
-                        <?php } ?>
                     </ul>
 
                     
