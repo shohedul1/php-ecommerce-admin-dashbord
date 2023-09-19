@@ -215,7 +215,7 @@ function getbrands(){
         $brand_id=$row_data['brand_id'];  
         echo "
         <li class='nav-item'>
-            <a href='index.php?brand=$brand_id' class='nav-link text-light'>$brand_title</a>
+            <a href='index.php?brand=$brand_id' class='text-decoration-none text-light fs-4'>$brand_title</a>
         </li>" ;  
         }
     
@@ -232,7 +232,7 @@ function getcategory(){
         $category_id=$row_data['category_id'];     
     echo"
     <li class='nav-item'>
-        <a href='index.php?category=$category_id' class='nav-link text-light'>$category_title</a>
+        <a href='index.php?category=$category_id' class='text-decoration-none text-light fs-4'>$category_title</a>
     </li>";
     }
 }

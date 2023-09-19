@@ -12,6 +12,31 @@ include('functions/common_function.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    .nav-link{
+        position: relative;
+        color:black;
+    }
+    .nav-link:hover{
+    color: #00FF7F;
+    transition: all 0.4s;
+    }
+    .nav-link::after{
+    position: absolute;
+    content: "";
+    background-color: #FF00FF;
+    height: 3px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    scale: 0;
+    transform-origin: left;
+    transition: all 0.4s;
+    }
+    .nav-link:hover::after{
+    scale: 1;
+    }
+</style>
 <body>
         <!-- navbar -->
         <div class="container-fluid p-0">
@@ -25,7 +50,7 @@ include('functions/common_function.php');
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="display_all.php">Product</a>
