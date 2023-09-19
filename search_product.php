@@ -37,10 +37,10 @@ include('functions/common_function.php');
                         <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
+                        <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Total Price:100/-</a>
+                        <a class="nav-link" href="#">Total Price: <?php total_cart_price();?>/-</a>
                         </li>
                         
                     </ul>
@@ -54,8 +54,10 @@ include('functions/common_function.php');
             </nav>
 
 
-
-
+            <!-- calling cart function -->
+            <?php 
+                cart(); 
+            ?>
 
             <!-- second child -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
@@ -81,7 +83,7 @@ include('functions/common_function.php');
                 <!-- display card -->
                 <div class="col-md-10">
                     <!-- products -->
-                    <div class="row">
+                    <div class="row m-1">
                         <!-- fetching.products -->
                         <?php
                             search_product();
