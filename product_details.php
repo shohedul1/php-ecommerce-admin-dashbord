@@ -83,11 +83,9 @@ include('functions/common_function.php');
                     <div class="row">
                         <!-- fetching.products -->
                         <?php
-                            getproducts();
+                            view_product();
                             get_unique_categories();
                             get_unique_brands();
-                            $ip = getIPAddress();  
-                            echo 'User Real IP Address - '.$ip;  
                         ?>
                     </div>    
                 </div>
