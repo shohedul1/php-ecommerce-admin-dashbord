@@ -1,6 +1,9 @@
 <?php 
     include('../includes/connect.php');
     include('../functions/common_function.php');
+    @session_start();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +72,7 @@ if(isset($_POST['user_login'])){
     $row_count_cart=mysqli_num_rows($select_cart);
 
     if($row_count>0){
-        $_SESSION['username']=$user_username;
+        $_SESSION['username']=$user_username;    
         if(password_verify($user_password,$row_data['user_password'])){
            // echo "<script>alert('Login successfull')</script>";
             if($row_count==1 and $row_count_cart==0){

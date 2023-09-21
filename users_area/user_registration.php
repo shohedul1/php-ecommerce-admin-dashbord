@@ -1,7 +1,7 @@
 <?php 
     include('../includes/connect.php');
     include('../functions/common_function.php');
-
+    
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,8 +67,6 @@
                         <input type="submit" value="Register" class="bg-info py-2 px-3 border-0" name="user_register">
                         <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account ?<a href="user_login.php" class="text-danger"> Login</a></p>
                     </div>
-
-                    
                 </form>
             </div>
         </div>
@@ -125,10 +123,6 @@ if(isset($_POST['user_register'])){
         echo "<script>window.open('../index.php','_self')</script>";
 
     }
-
-
-    
-
 }
 
 

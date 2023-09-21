@@ -1,6 +1,7 @@
 <?php 
 include('../includes/connect.php');
 // include('../functions/common_function.php');
+session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -13,15 +14,19 @@ include('../includes/connect.php');
     <link rel="stylesheet" href="../style.css">
 </head>
 <style>
-    .nav-link{
+    body{
+        overflow-x: hidden;
+    }
+
+    a.nav-link{
         position: relative;
         color:black;
     }
-    .nav-link:hover{
+    a.nav-link:hover{
     color: #00FF7F;
     transition: all 0.4s;
     }
-    .nav-link::after{
+    a.nav-link::after{
     position: absolute;
     content: "";
     background-color: #FF00FF;
@@ -33,8 +38,13 @@ include('../includes/connect.php');
     transform-origin: left;
     transition: all 0.4s;
     }
-    .nav-link:hover::after{
+    a.nav-link:hover::after{
     scale: 1;
+    }
+    .cart_img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
     }
 </style>
 <body>
@@ -43,7 +53,7 @@ include('../includes/connect.php');
             <!-- first child -->
             <nav class="navbar navbar-expand-lg bg-info">
                 <div class="container-fluid">
-                    <img src="./images/logo.png" alt="" class="logo rounded-circle">
+                    <img src="../images/logo.png" alt="" class="logo rounded-circle">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -56,7 +66,7 @@ include('../includes/connect.php');
                         <a class="nav-link" href="../display_all.php">Product</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="user_registration.php">Register</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
@@ -73,12 +83,30 @@ include('../includes/connect.php');
             <!-- second child -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome Guest</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="./users_area/user_login.php">Login</a>
-                    </li>
+                <li class='nav-item'>
+                         <a class='nav-link' href='#'>Welcome Guest</a>
+                         </li>
+                    <?php 
+                    // if(!isset($_SESSION['username'])){
+                    //     echo "<li class='nav-item'>
+                    //     <a class='nav-link' href='#'>Welcome Guest</a>
+                    //     </li>";
+                    
+                    // }else{
+                    //     echo "<li class='nav-item'>
+                    //     <a class='nav-link' href='#'>Welcome ".$_SESSION['username']."</a>
+                    //     </li>";
+                    // }
+                    if(!isset($_SESSION['username'])){
+                        echo "<li class='nav-item'>
+                        <a class='nav-link' href='./user_login.php'>login</a>
+                        </li>";
+                    }else{
+                        echo "<li class='nav-item'>
+                        <a class='nav-link' href='./logout.php'>Logout</a>
+                        </li>";
+                    }
+                    ?>
                 </ul>
             </nav>
 
@@ -99,7 +127,7 @@ include('../includes/connect.php');
                             include('user_login.php');
 
                         }else{
-                            include('../payment.php');
+                            include('payment.php');
                         }
                         ?>
                         
