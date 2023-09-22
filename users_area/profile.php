@@ -17,6 +17,11 @@ include('../functions/common_function.php');
     body{
         overflow-x: hidden;
     }
+    .edit_image{
+        width:100px;
+        height:100px;
+        object-fit: contain;
+    }
     .profile_imge{
         width:100px;
         margin:auto;
@@ -142,13 +147,13 @@ include('../functions/common_function.php');
                             <a class="nav-link text-light" href="#"><h4>Your profile</h4></a>
                         </li>
                         <?php 
-                        $user_username=$_SESSION['username'];
-                        $user_image="Select * from `user_table` where username='$user_username'";
+                        $username=$_SESSION['username'];
+                        $user_image="Select * from `user_table` where username='$username'";
                         $user_image_query=mysqli_query($con,$user_image);
                         $row_image=mysqli_fetch_array($user_image_query);
-                        $user_images=$row_image['user_image'];
+                        $user_image=$row_image['user_image'];
                         echo "<li class='nav-item'>
-                        <img src='./user_images/$user_images' class='profile_imge my-4' alt=''>
+                        <img src='./user_images/$user_image' class='profile_imge my-4' alt=''>
                         </li>";
                         
                         ?>
@@ -170,8 +175,14 @@ include('../functions/common_function.php');
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-10">
-                    <?php get_user_order_details(); ?>
+                <div class="col-md-10 text-center">
+                    <?php 
+                    get_user_order_details(); 
+                    if(isset($_GET['edit_account'])){
+                        include('edit_account.php');
+                    }
+                    
+                    ?>
                 </div>
             </div>
         
