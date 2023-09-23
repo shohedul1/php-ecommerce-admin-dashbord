@@ -75,9 +75,17 @@ include('../functions/common_function.php');
                         <li class="nav-item">
                         <a class="nav-link" href="../display_all.php">Product</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="./user_registration.php">Register</a>
-                        </li>
+                        <?php
+                        if(isset($_SESSION['username'])){
+                            echo "<li class='nav-item'>
+                            <a class='nav-link' href='./profile.php'>My Account</a>
+                            </li>";
+                        }else{
+                            echo "<li class='nav-item'>
+                            <a class='nav-link' href='./users_area/user_registration.php'>Register</a>
+                            </li>";
+                        }
+                        ?>
                         <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                         </li>
@@ -165,7 +173,7 @@ include('../functions/common_function.php');
                             <a href="profile.php?edit_account" class="nav-link text-light">Edit Account</a>
                         </li>
                         <li class="nav-item">
-                            <a href="profile.php.?my_orders" class="nav-link text-light">My orders</a>
+                            <a href="profile.php?my_orders" class="nav-link text-light">My orders</a>
                         </li>
                         <li class="nav-item">
                             <a href="profile.php?delete_account" class="nav-link text-light">Delete Account</a>
@@ -180,6 +188,9 @@ include('../functions/common_function.php');
                     get_user_order_details(); 
                     if(isset($_GET['edit_account'])){
                         include('edit_account.php');
+                    }
+                    if(isset($_GET['my_orders'])){
+                        include('user_orders.php');
                     }
                     
                     ?>

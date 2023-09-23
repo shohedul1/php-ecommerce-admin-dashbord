@@ -64,9 +64,17 @@ session_start();
                             <li class="nav-item">
                             <a class="nav-link" href="display_all.php">Product</a>
                             </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="./users_area/user_registration.php">Register</a>
-                            </li>
+                            <?php
+                            if(isset($_SESSION['username'])){
+                            echo "<li class='nav-item'>
+                            <a class='nav-link' href='./users_area/profile.php'>My Account</a>
+                            </li>";
+                            }else{
+                            echo "<li class='nav-item'>
+                            <a class='nav-link' href='./users_area/user_registration.php'>Register</a>
+                            </li>";
+                            }
+                            ?>
                             <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                             </li>
@@ -164,7 +172,8 @@ session_start();
                                                 $update_cart="update `cart_details` set quantity='$quantities' where ip_address='$get_ip_add'";
                                                 $result_products_quantity=mysqli_query($con,$update_cart);
                                                 $total_price=$total_price*$quantities; 
-
+                                            
+                                                
                                             }  
                                         ?>
                                         <td><?php echo $price_table;?>/-</td>
