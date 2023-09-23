@@ -19,12 +19,13 @@ include('../functions/common_function.php');
         width:90px;
         object-fit:contain;
     }
-    .footer{
-        position: absolute;
-        bottom:0;
-    }
     body{
         overflow-x: hidden;
+    }
+    .product_img{
+        width:100px;
+        object-fit:contain;
+
     }
 
 </style>
@@ -59,16 +60,16 @@ include('../functions/common_function.php');
                         <p class="text-light text-center">Admin Name</p>
                     </div>
                     <div class="button text-center">
-                        <button class="my-1 border-0"><a href="insert_product.php" class="nav-link px-3 text-light bg-info mmy-1>Insert Product</a></button>
-                        <button class="my-1 border-0"><a href="index.php?view_products" class="nav-link px-3 text-light bg-info my-1">View Products</a></button>
-                        <button class="my-1 border-0"><a href="index.php?insert_category" class="nav-link px-3  text-light bg-info my-1">Insert Categories</a></button>
-                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info my-1">View Categories</a></button>
-                        <button class="my-1 border-0"><a href="index.php?inser_brand" class="nav-link px-3  text-light bg-info my-1">Insert Brands</a></button>
-                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info my-1">View Brands</a></button>
-                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info my-1">All orders</a></button>
-                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info my-1">All Payments</a></button>
-                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info my-1">List userts</a></button>
-                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info my-1">Logout</a></button>
+                        <button class="my-1 border-0"><a href="insert_product.php" class="nav-link px-3 text-light bg-info m-1">Insert Product</a></button>
+                        <button class="my-1 border-0"><a href="index.php?view_products" class="nav-link px-3 text-light bg-info m-1">View Products</a></button>
+                        <button class="my-1 border-0"><a href="index.php?insert_category" class="nav-link px-3  text-light bg-info m-1">Insert Categories</a></button>
+                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">View Categories</a></button>
+                        <button class="my-1 border-0"><a href="index.php?inser_brand" class="nav-link px-3  text-light bg-info m-1">Insert Brands</a></button>
+                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">View Brands</a></button>
+                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">All orders</a></button>
+                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">All Payments</a></button>
+                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">List userts</a></button>
+                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">Logout</a></button>
                     </div>
                 </div>
 
@@ -85,6 +86,9 @@ include('../functions/common_function.php');
                 }
                 if(isset($_GET['view_products'])){
                     include('view_products.php');
+                }
+                if(isset($_GET['edit_products'])){
+                    include('edit_products.php');
                 }
                 ?>
             </div>
