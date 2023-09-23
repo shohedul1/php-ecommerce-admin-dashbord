@@ -1,3 +1,9 @@
+<?php 
+include('../includes/connect.php');
+include('../functions/common_function.php');
+    
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +14,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style.css">
 </head>
+<style>
+    .admin_image{
+        width:90px;
+        object-fit:contain;
+    }
+    .footer{
+        position: absolute;
+        bottom:0;
+    }
+    body{
+        overflow-x: hidden;
+    }
+
+</style>
 <body>
     <!-- navbar -->
     <div class="container-fluid p-0">
@@ -28,7 +48,7 @@
 
             <!-- second child -->
             <div class="bg-light">
-                <h3 class="text-center p-2">Manage Details</h3>
+                <h4 class="text-center">Manage Details</h4>
             </div>
 
             <!-- third child -->
@@ -39,16 +59,16 @@
                         <p class="text-light text-center">Admin Name</p>
                     </div>
                     <div class="button text-center">
-                        <button class="my-1 px-1 border-0"><a href="insert_product.php" class="nav-link px-3 text-light bg-info my-1">Insert Product</a></button>
-                        <button class="my-1 px-1 border-0"><a href="" class="nav-link px-3  text-light bg-info my-1">View Products</a></button>
-                        <button class="my-1 px-1 border-0"><a href="index.php?insert_category" class="nav-link px-3  text-light bg-info my-1">Insert Categories</a></button>
-                        <button class="my-1 px-1 border-0"><a href="" class="nav-link px-3  text-light bg-info my-1">View Categories</a></button>
-                        <button class="my-1 px-1 border-0"><a href="index.php?inser_brand" class="nav-link px-3  text-light bg-info my-1">Insert Brands</a></button>
-                        <button class="my-1 px-1 border-0"><a href="" class="nav-link px-3  text-light bg-info my-1">View Brands</a></button>
-                        <button class="my-1 px-1 border-0"><a href="" class="nav-link px-3  text-light bg-info my-1">All orders</a></button>
-                        <button class="my-1 px-1 border-0"><a href="" class="nav-link px-3  text-light bg-info my-1">All Payments</a></button>
-                        <button class="my-1 px-1 border-0"><a href="" class="nav-link px-3  text-light bg-info my-1">List userts</a></button>
-                        <button class="my-1 px-1 border-0"><a href="" class="nav-link px-3  text-light bg-info my-1">Logout</a></button>
+                        <button class="my-1 border-0"><a href="insert_product.php" class="nav-link px-3 text-light bg-info mmy-1>Insert Product</a></button>
+                        <button class="my-1 border-0"><a href="index.php?view_products" class="nav-link px-3 text-light bg-info my-1">View Products</a></button>
+                        <button class="my-1 border-0"><a href="index.php?insert_category" class="nav-link px-3  text-light bg-info my-1">Insert Categories</a></button>
+                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info my-1">View Categories</a></button>
+                        <button class="my-1 border-0"><a href="index.php?inser_brand" class="nav-link px-3  text-light bg-info my-1">Insert Brands</a></button>
+                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info my-1">View Brands</a></button>
+                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info my-1">All orders</a></button>
+                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info my-1">All Payments</a></button>
+                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info my-1">List userts</a></button>
+                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info my-1">Logout</a></button>
                     </div>
                 </div>
 
@@ -63,14 +83,18 @@
                 if(isset($_GET['inser_brand'])){
                     include('insert_brands.php');
                 }
+                if(isset($_GET['view_products'])){
+                    include('view_products.php');
+                }
                 ?>
             </div>
 
 
             <!-- latt-child -->
-            <div class="bg-info p-3 text-center position-absolute bottom-0">
-            <p>All right reserved @ Designed by Khanam-2022</p>
-            </div>
+        <?php 
+        include('../includes/footer.php');
+
+        ?>
 
 
     </div>
