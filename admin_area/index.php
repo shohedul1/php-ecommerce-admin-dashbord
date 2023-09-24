@@ -63,9 +63,9 @@ include('../functions/common_function.php');
                         <button class="my-1 border-0"><a href="insert_product.php" class="nav-link px-3 text-light bg-info m-1">Insert Product</a></button>
                         <button class="my-1 border-0"><a href="index.php?view_products" class="nav-link px-3 text-light bg-info m-1">View Products</a></button>
                         <button class="my-1 border-0"><a href="index.php?insert_category" class="nav-link px-3  text-light bg-info m-1">Insert Categories</a></button>
-                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">View Categories</a></button>
+                        <button class="my-1 border-0"><a href="index.php?view_categories" class="nav-link px-3 text-light bg-info m-1">View Categories</a></button>
                         <button class="my-1 border-0"><a href="index.php?inser_brand" class="nav-link px-3  text-light bg-info m-1">Insert Brands</a></button>
-                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">View Brands</a></button>
+                        <button class="my-1 border-0"><a href="index.php?view_brand" class="nav-link px-3 text-light bg-info m-1">View Brands</a></button>
                         <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">All orders</a></button>
                         <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">All Payments</a></button>
                         <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">List userts</a></button>
@@ -89,6 +89,27 @@ include('../functions/common_function.php');
                 }
                 if(isset($_GET['edit_products'])){
                     include('edit_products.php');
+                }
+                if(isset($_GET['delete_product'])){
+                    include('delete_product.php');
+                }
+                if(isset($_GET['view_categories'])){
+                    include('view_categories.php');
+                }
+                if(isset($_GET['edit_categories'])){
+                    include('edit_categories.php');
+                }
+                if(isset($_GET['delete_categories'])){
+                    include('delete_categories.php');
+                }
+                if(isset($_GET['view_brand'])){
+                    include('view_brand.php');
+                }
+                if(isset($_GET['edit_brand'])){
+                    include('edit_brand.php');
+                }
+                if(isset($_GET['delete_brand'])){
+                    include('delete_brand.php');
                 }
                 ?>
             </div>
