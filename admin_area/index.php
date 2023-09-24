@@ -66,9 +66,9 @@ include('../functions/common_function.php');
                         <button class="my-1 border-0"><a href="index.php?view_categories" class="nav-link px-3 text-light bg-info m-1">View Categories</a></button>
                         <button class="my-1 border-0"><a href="index.php?inser_brand" class="nav-link px-3  text-light bg-info m-1">Insert Brands</a></button>
                         <button class="my-1 border-0"><a href="index.php?view_brand" class="nav-link px-3 text-light bg-info m-1">View Brands</a></button>
-                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">All orders</a></button>
-                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">All Payments</a></button>
-                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">List userts</a></button>
+                        <button class="my-1 border-0"><a href="index.php?list_orders" class="nav-link px-3 text-light bg-info m-1">All orders</a></button>
+                        <button class="my-1 border-0"><a href="index.php?list_payments" class="nav-link px-3 text-light bg-info m-1">All Payments</a></button>
+                        <button class="my-1 border-0"><a href="index.php?list_users" class="nav-link px-3 text-light bg-info m-1">List userts</a></button>
                         <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">Logout</a></button>
                     </div>
                 </div>
@@ -111,6 +111,17 @@ include('../functions/common_function.php');
                 if(isset($_GET['delete_brand'])){
                     include('delete_brand.php');
                 }
+                if(isset($_GET['list_orders'])){
+                    include('list_orders.php');
+                }
+                if(isset($_GET['list_payments'])){
+                    include('list_payments.php');
+                }
+                if(isset($_GET['list_users'])){
+                    include('list_users.php');
+                }
+                
+            
                 ?>
             </div>
 
