@@ -1,6 +1,7 @@
 <?php 
 include('../includes/connect.php');
 include('../functions/common_function.php');
+@session_start(); 
     
 ?>
 
@@ -40,7 +41,16 @@ include('../functions/common_function.php');
                     <img src="../images/logo.png" alt="" class="logo rounded-circle">
                     <nav class="navbar navbar-expand-lg">
                         <ul class="nav-item">
-                            <a href="#" class="nav-link">Welcome guest</a>
+                            <?php 
+                            if(!isset($_SESSION['username'])){
+                                echo "<a class='nav-link' href='#'>Welcome Guest</a>";
+                            
+                            }else{
+                                echo "<a class='nav-link' href='#'>Welcome ".$_SESSION['username']."</a>";
+                            }
+                            
+                            ?>
+                        
                         </ul>
                     </nav>
                 </div>
@@ -69,7 +79,31 @@ include('../functions/common_function.php');
                         <button class="my-1 border-0"><a href="index.php?list_orders" class="nav-link px-3 text-light bg-info m-1">All orders</a></button>
                         <button class="my-1 border-0"><a href="index.php?list_payments" class="nav-link px-3 text-light bg-info m-1">All Payments</a></button>
                         <button class="my-1 border-0"><a href="index.php?list_users" class="nav-link px-3 text-light bg-info m-1">List userts</a></button>
-                        <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">Logout</a></button>
+                        <!-- <button class="my-1 border-0"><a href="" class="nav-link px-3 text-light bg-info m-1">Logout</a></button> -->
+                        <?php
+                        // if(isset($_SESSION['username'])){
+                        //     echo "<button class='my-1 border-0'><a href='./index.php' class='nav-link px-3 text-light bg-info m-1'>Logout</a></button>";
+                        // }else{
+                        //     echo "<button class='my-1 border-0'><a href='./admin_login.php' class='nav-link px-3 text-light bg-info m-1'>login</a></button>";
+
+                        // }
+                        // if(!isset($_SESSION['username'])){
+                        //     echo "<li class='nav-item'>
+                        //     <a class='nav-link' href='#'>Welcome Guest</a>
+                        //     </li>";
+                        
+                        // }else{
+                        //     echo "<li class='nav-item'>
+                        //     <a class='nav-link' href='#'>Welcome ".$_SESSION['username']."</a>
+                        //     </li>";
+                        // }
+                        if(!isset($_SESSION['username'])){
+                            echo "<button class='my-1 border-0'><a href='./admin_login.php' class='nav-link px-3 text-light bg-info m-1'>Login</a></button>";
+
+                        }else{
+                            echo "<button class='my-1 border-0'><a href='./logout.php' class='nav-link px-3 text-light bg-info m-1'>Logout</a></button>";
+                        }
+                        ?>
                     </div>
                 </div>
 
